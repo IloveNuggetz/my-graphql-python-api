@@ -1,0 +1,30 @@
+schema {
+    query: Query
+}
+
+type Philosopher {
+    wikidataUrl: ID!
+    name: String
+    imageUrl: String
+    minBirthYear: Int
+    maxBirthYear: Int
+    minDeathyear: Int
+    maxDeathyear: Int
+}
+
+type PhilosopherResult {
+    success: Boolean!
+    errors: [String]
+    philosopher: Philosopher
+}
+
+type PhilosophersResult {
+    success: Boolean!
+    errors: [String]
+    philosophers: [Philosopher]
+}
+
+type Query {
+    listPhilosophers: PhilosophersResult!
+    getPhilosopher(wikidataUrl: ID!): PhilosopherResult!
+}
