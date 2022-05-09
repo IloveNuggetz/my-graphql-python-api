@@ -1,4 +1,4 @@
-from .Model.Db.models import Philosopher
+from .models import Philosopher
 
 
 def listPhilosophers_resolver(obj, info):

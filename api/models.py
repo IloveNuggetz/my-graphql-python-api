@@ -1,4 +1,4 @@
-from api import db
+from . import db
 
 
 class Philosopher(db.Model):
@@ -20,3 +20,10 @@ class Philosopher(db.Model):
             "minDeathyear": self.minDeathyear,
             "maxDeathyear": self.minDeathyear,
         }
+
+
+class WikimediaProject:
+
+    def __init__(self, name, endpoints):
+        self.name = name
+        self.endpoints = endpoints

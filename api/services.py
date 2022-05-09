@@ -1,8 +1,29 @@
-from ..Model.WikimediaProject import WikimediaProject
-from .RequestService import RequestService
-import json
+from .models import WikimediaProject
+from .exceptions import WikimediaException
+import requests
 from flask import jsonify
-from ..Exception.WikimediaException import WikimediaException
+import json
+
+
+class GameService:
+    def get_available_quote_categories():
+        return None
+
+
+class RequestService:
+
+    @staticmethod
+    def executeRequest(method, url, headers, payload):
+        http_response = None
+        try:
+            http_response = requests.request(
+                "GET", url, headers=headers, data=payload)
+            pass
+        except Exception as e:
+            print("Error during http request to " + url)
+            raise e
+
+        return http_response.json()
 
 
 class WikimediaService:
